@@ -4,7 +4,7 @@ Script to backup monster hunter rise save files to a new folder for the current 
 Available in either Executable or .py form. If you have not installed Python on your PC then download the executable version.
 
 # Executable version
-Extract the folder and run the save_backup.exe shortcut.
+Extract the folder and run the save_backup.exe file.
 
 # .py version
 If you have Python installed onto your system simply run the script through the command line.
