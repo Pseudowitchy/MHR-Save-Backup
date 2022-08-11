@@ -38,6 +38,9 @@ Initial Release
 
 # To Do
 Fix weird text formatting on overwrite confirmation prompt
+
 Add label showing most recent save backup
+
 Allow user to roll back saves to one of the stored backup files
+
 Add GUI element to select date format for folders.
