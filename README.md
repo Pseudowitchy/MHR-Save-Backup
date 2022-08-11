@@ -23,10 +23,14 @@ Steam/userdata/__string of numbers tied to your steam profile__/1446780/remote
 Take the win64_save folder located within the folder for the date of your choice and place it in the above folder.
 
 # Changelog
-v0.2: 
+v0.2:
+ 
 Added GUI to allow the user to point the program to the steam/userdata folder
+
 Check to ensure the folder selected is valid
+
 Check to ask the user if they would like to overwrite an existing backup in the event of more than one backup within the same day.
+
 Rewrote majority of code, hopefully to allow for easier changes later (fingers crossed!)
 
 v0.1: 
