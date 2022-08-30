@@ -40,15 +40,17 @@ class Gui:
         browse_button.grid(row=1, column=4, padx=1)
 
         backup_button = Button(text="Backup Saves", width=10,
-                               command=lambda: self.Backup_Run(location))
+                               command=lambda: self.Backup_Run(Path(browse_bar_text.get())))
         backup_button.grid(row=2, columnspan=5, pady=5)
 
         # Botom section of window, shows existing save files.
-        Label(text="""The below buttons will OVERWRITE your CURRENT steam saves for Rise,
+        Label(text="""\
+            The below buttons will OVERWRITE your CURRENT steam saves for Rise,
             ensure you have backed up your current save before use.""").grid(
             row=3, columnspan=5)
 
         saves = [f for f in os.listdir(saves_location)]
+        saves.reverse()
         column = 0
         row = 4
 
@@ -59,7 +61,7 @@ class Gui:
                 break
 
         for x in range(0, 10):
-            Button(text=saves[x], command=lambda x=x: self.Backup_Restore(saves[x])).grid(
+            Button(text=saves[x], command=lambda x=x: self.Backup_Restore(saves[x], location)).grid(
                 row=row, column=column, columnspan=2, pady=3)
             if column == 0:
                 column += 3
@@ -79,7 +81,7 @@ class Gui:
         # the current date in MM-DD-YYYY format.
         # If you wish to change the date format you can change the order at the
         # end of the line below, for 2 digit date use %y instead of %Y.
-
+        print(location)
         if "userdata" in location.__str__():
             saves = [p for p in location.rglob("1446780/remote")]
             for save in saves:
@@ -101,10 +103,29 @@ class Gui:
                 messagebox.showinfo("Success!", "Backup Successful!")
         else:
             messagebox.showerror(
-                "Erorr", "Ensure you selected the correct folder.")
+                "Error", "Ensure you selected the correct folder.")
 
-    def Backup_Restore(self, folder):
-        print(folder)
+    def Backup_Restore(self, folder, location):
+        saves = [p for p in location.rglob("1446780/remote/win64_save")]
+        for save in saves:
+            place = save
+
+        if folder == "Not Found":
+            pass
+        elif os.path.exists(Path(backup_folder / folder)):
+            backup_target = Path(backup_folder / folder / 'win64_save')
+
+            backup_confirm = messagebox.askquestion("Confirm Overwrite", """\
+                This will overwrite your CURRENT save file
+                with the backup you selected, ensure you
+                have backed up your current save file as
+                this CANNOT currently be undone.""")
+            if backup_confirm == 'yes':
+                shutil.copytree(backup_target, place, dirs_exist_ok=True)
+                messagebox.showinfo(
+                    "Success!", f"Save file Overwritten with selected Backup dated {folder}")
+            else:
+                pass
 
 
 if __name__ == "__main__":
