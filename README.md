@@ -12,11 +12,11 @@ If you have Python installed onto your system simply run the script through the 
 # Usage
 Select the location of your "Steam/userdata" directory, this is commonly placed in C:/Program Files (x86)/Steam/userdata.
 
-Click Backup Saves to proceed, the program will create a new folder in the same location as the shortcut.
+Click Backup Saves to proceed, the program will create a new folder in the Save Backups folder, the new folder will be named for the date of it's creation and will contain all of the save files for Monster Hunter Rise.
 
-The new folder will be named for the date you backed up the saves and should contain all of your save files for Monster Hunter Rise.
+The 10 backup buttons can be clicked to roll back your saves to one of the backups you have stored within the Save Backups folder. Doing so will overwrite your currently existing steam saves for Monster Hunter Rise, ensure they are backed up before you overwrite them. There is a prompt upon clicking the buttons to ensure the user intends to overwrite their saves.
 
-In the event you wish to restore your saves from a backup that you have made, you will need to navigate to:
+In the event you wish to restore your saves from a backup that is older than those displayed within the program, you will need to navigate to:
 
 Steam/userdata/__string of numbers tied to your steam profile__/1446780/remote
 
