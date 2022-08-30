@@ -23,6 +23,12 @@ Steam/userdata/__string of numbers tied to your steam profile__/1446780/remote
 Take the win64_save folder located within the folder for the date of your choice and place it in the above folder.
 
 # Changelog
+v0.3:
+
+Previous 10 save backups should display in the GUI as buttons, clicking a button will ask for confirmation before moving that backup into the steam folder, overwriting the existing save file. Ensure you've backed up your save before doing so to avoid losing it.
+
+Fixed some formatting issues for text in the GUI.
+
 v0.2:
  
 Added GUI to allow the user to point the program to the steam/userdata folder
@@ -37,10 +43,10 @@ v0.1:
 Initial Release
 
 # To Do
-Fix weird text formatting on overwrite confirmation prompt
+Improve appearance of GUI
 
-Add label showing most recent save backup
-
-Allow user to roll back saves to one of the stored backup files
+Have the buttons showing past backup dates update when a new backup file is created.
 
 Add GUI element to select date format for folders.
+
+Sort out code to allow the program to work on Mac or Linux, as I don't believe they would work currently, though I cannot test it myself as of now.
