@@ -49,6 +49,9 @@ class Gui:
             ensure you have backed up your current save before use.""").grid(
             row=3, columnspan=5)
 
+        self.Button_Render(browse_bar_text, saves_location)
+
+    def Button_Render(self, location, saves_location=backup_folder):
         saves = [f for f in os.listdir(saves_location)]
         saves.reverse()
         column = 0
@@ -61,7 +64,7 @@ class Gui:
                 break
 
         for x in range(0, 10):
-            Button(text=saves[x], command=lambda x=x: self.Backup_Restore(saves[x], location)).grid(
+            x = Button(text=saves[x], command=lambda x=x: self.Backup_Restore(saves[x], location)).grid(
                 row=row, column=column, columnspan=2, pady=3)
             if column == 0:
                 column += 3
@@ -104,6 +107,8 @@ class Gui:
         else:
             messagebox.showerror(
                 "Error", "Ensure you selected the correct folder.")
+
+        self.Button_Render(location)
 
     def Backup_Restore(self, folder, location):
         saves = [p for p in location.rglob("1446780/remote/win64_save")]
